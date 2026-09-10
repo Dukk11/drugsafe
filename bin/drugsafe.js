@@ -26,16 +26,7 @@ const colors = {
 };
 const reset = '\x1b[0m';
 
-if (listAll) {
-  console.log(`drugsafe — ${listDrugs().length} supported drugs (generic [aliases]):\n`);
-  for (const d of listDrugs()) {
-    console.log(`  ${d.name.toLowerCase()}${d.aliases.length ? ` (${d.aliases.join(', ')})` : ''}`);
-  }
-  process.exit(0);
-}
-
-if (meds.length < 2) {
-  console.error(`drugsafe — drug interaction checker (decision support, not a medical device)
+const USAGE = `drugsafe — drug interaction checker (decision support, not a medical device)
 
 Usage:
   drugsafe <medication> <medication> [more...]
@@ -47,7 +38,28 @@ Examples:
   drugsafe coumadin advil aspirin      # brand names work
   drugsafe --json oxycontin xanax
 
-Exit codes: 0 none · 1 moderate/major · 2 contraindicated`);
+Exit codes: 0 none · 1 moderate/major · 2 contraindicated`;
+
+if (args.includes('--help') || args.includes('-h')) {
+  console.log(USAGE);
+  process.exit(0);
+}
+
+if (args.includes('--version') || args.includes('-v')) {
+  console.log('drugsafe 1.0.0');
+  process.exit(0);
+}
+
+if (listAll) {
+  console.log(`drugsafe — ${listDrugs().length} supported drugs (generic [aliases]):\n`);
+  for (const d of listDrugs()) {
+    console.log(`  ${d.name.toLowerCase()}${d.aliases.length ? ` (${d.aliases.join(', ')})` : ''}`);
+  }
+  process.exit(0);
+}
+
+if (meds.length < 2) {
+  console.error(USAGE);
   process.exit(64);
 }
 
