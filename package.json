@@ -1,0 +1,48 @@
+{
+  "name": "drugsafe",
+  "version": "1.0.0",
+  "description": "💊 Drug interaction checker as a zero-dependency CLI + library — curated major interactions, CYP450 mechanisms, class-based rules (triple whammy, serotonin syndrome, QT stacking). Brand-name aware.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "bin": {
+    "drugsafe": "bin/drugsafe.js"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "start": "node bin/drugsafe.js --help"
+  },
+  "keywords": [
+    "pharmacology",
+    "drug-interactions",
+    "medication-safety",
+    "cyp450",
+    "polypharmacy",
+    "clinical",
+    "medical",
+    "cli",
+    "healthcare"
+  ],
+  "author": {
+    "name": "Duk",
+    "url": "https://dukdev.com"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dukk11/drugsafe.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dukk11/drugsafe/issues"
+  },
+  "homepage": "https://github.com/Dukk11/drugsafe#readme"
+}
